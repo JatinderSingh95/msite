@@ -27,9 +27,6 @@ SECRET_KEY = '4fsru$!xjw#y%tnos=@b$onbjzae%5*d((fu(-x*r4zag1aein'
 DEBUG = True
 
 ALLOWED_HOSTS = ALLOWED_HOSTS = ['127.0.0.1:8000', 'test1.com', 'qwerty.com', 'ggnj.com', 'asdfhgh.com', '127.0.0.1']
-#ALLOWED_HOSTS = ALLOWED_HOSTS = ['127.0.0.1:8000', 'test1.com', '127.0.0.1']
-#ALLOWED_HOSTS = ALLOWED_HOSTS = ['127.0.0.1:8000', 'qwerty.com', '127.0.0.1']
-#ALLOWED_HOSTS = ALLOWED_HOSTS = ['127.0.0.1:8000', 'qwerty.com', '127.0.0.1']
 
 
 # Application definition
@@ -42,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+	
 	
 ]
 
@@ -122,4 +120,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
+
+STATIC_URL =  '/static/'
+
+#STATIC_ROOT = os.path.join(BASE_DIR,'static','static_root')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    #'/var/www/static/',
+]
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),"static_cdn")
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),"media_cdn")

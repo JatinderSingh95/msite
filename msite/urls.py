@@ -16,9 +16,13 @@ Including another URLconf
 from mscit import views
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
+from django.contrib.sites.models import Site
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	url(r'^$', views.my_view, name='my_view'),
-	#url(r'^$', views.my_view1, name='my_view1'),
 ]
+if settings.DEBUG:
+	urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
